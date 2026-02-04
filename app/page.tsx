@@ -1,63 +1,114 @@
-import Image from "next/image";
+import Header from "@/components/Header";
+import TierRow from "@/components/TierRow";
 
 export default function Home() {
+  const tier10Albums = [
+    {
+      id: "dsotm",
+      title: "Dark Side of The Moon",
+      artist: "Pink Floyd",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    },
+    {
+      id: "kid-a",
+      title: "Kid A",
+      artist: "Radiohead",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/b/b5/Radiohead.kida.albumart.jpg",
+    },
+    {
+      id: "tpab",
+      title: "To Pimp a Butterfly",
+      artist: "Kendrick Lamar",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/f/f6/Kendrick_Lamar_-_To_Pimp_a_Butterfly.png",
+    },
+    {
+      id: "blonde",
+      title: "Blonde",
+      artist: "Frank Ocean",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/a/a0/Blonde_-_Frank_Ocean.jpeg",
+    },
+    {
+      id: "in-rainbows",
+      title: "In Rainbows",
+      artist: "Radiohead",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/1/14/In_rainbows_cover.png",
+    },
+    {
+      id: "currents",
+      title: "Currents",
+      artist: "Tame Impala",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/9/9b/Tame_Impala_-_Currents.png",
+    },
+  ];
+
+  const tier9Albums = [
+    {
+      id: "melodrama",
+      title: "Melodrama",
+      artist: "Lorde",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/b/b2/Lorde_-_Melodrama.png",
+    },
+    {
+      id: "igor",
+      title: "Igor",
+      artist: "Tyler, The Creator",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/5/51/Igor_-_Tyler%2C_the_Creator.jpg",
+    },
+    {
+      id: "after-hours",
+      title: "After Hours",
+      artist: "The Weeknd",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/c/c1/The_Weeknd_-_After_Hours.png",
+    },
+    {
+      id: "punisher",
+      title: "Punisher",
+      artist: "Phoebe Bridgers",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/1/10/Phoebe_Bridgers_-_Punisher.png",
+    },
+    {
+      id: "ram",
+      title: "Random Access Memories",
+      artist: "Daft Punk",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg",
+    },
+  ];
+
+  const tier8Albums = [
+    {
+      id: "folklore",
+      title: "Folklore",
+      artist: "Taylor Swift",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/f/f8/Taylor_Swift_-_Folklore.png",
+    },
+    {
+      id: "future-nostalgia",
+      title: "Future Nostalgia",
+      artist: "Dua Lipa",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/f/f5/Dua_Lipa_-_Future_Nostalgia_%28Official_Album_Cover%29.png",
+    },
+    {
+      id: "nfr",
+      title: "Norman F****** Rockwell!",
+      artist: "Lana Del Rey",
+      coverUrl: "https://upload.wikimedia.org/wikipedia/en/d/d5/Lana_Del_Rey_-_Norman_Fucking_Rockwell.png",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-zinc-950 flex flex-col">
+      <Header />
+
+      <main className="flex-1 pb-20">
+        <div className="px-8 mt-12 mb-8">
+          <h1 className="text-5xl font-bold text-white tracking-tight mb-2">My Collection</h1>
+          <p className="text-zinc-400 text-lg">Organized by critical acclaim & personal rating.</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="flex flex-col">
+          <TierRow score="10" label="MASTERPIECE" albums={tier10Albums} />
+          <TierRow score="9" label="EXCELLENT" albums={tier9Albums} />
+          <TierRow score="8" label="GREAT" albums={tier8Albums} />
         </div>
       </main>
     </div>
