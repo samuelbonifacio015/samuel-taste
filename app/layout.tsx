@@ -22,7 +22,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased`}
       >
-        {children}
+        <div className="mx-auto w-[70%] min-h-screen shadow-2xl shadow-black">
+          {children}
+        </div>
       </body>
     </html>
   );
