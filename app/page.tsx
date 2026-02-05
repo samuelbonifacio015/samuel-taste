@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import { Eye, Pencil } from "lucide-react";
 import Header from "@/components/Header";
 import TierRow from "@/components/TierRow";
 
@@ -20,6 +21,7 @@ interface Tier {
 }
 
 export default function Home() {
+  const [isEditMode, setIsEditMode] = useState(false);
   const [tiers, setTiers] = useState<Tier[]>([
     {
       id: "tier-10",
@@ -163,11 +165,55 @@ export default function Home() {
 
       <main className="flex-1 pb-20">
         <div className="px-4 md:px-8 mt-8 md:mt-12 mb-6 md:mb-8">
-          <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2">My Collection</h1>
-          <p className="text-zinc-400 text-sm md:text-lg">Organized by critical acclaim & personal rating. Drag albums to reorder or move between tiers.</p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2">My Collection</h1>
+              <p className="text-zinc-400 text-sm md:text-lg">
+                {isEditMode 
+                  ? "Drag albums to reorder or move between tiers." 
+                  : "Organized by critical acclaim & personal rating."}
+              </p>
+            </div>
+            
+            <button
+              onClick={() => setIsEditMode(!isEditMode)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+                isEditMode 
+                  ? "bg-orange-500 text-white hover:bg-orange-600" 
+                  : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white"
+              }`}
+            >
+              {isEditMode ? (
+                <>
+                  <Pencil className="w-4 h-4" />
+                  Edit Mode
+                </>
+              ) : (
+                <>
+                  <Eye className="w-4 h-4" />
+                  View Mode
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
-        <DragDropContext onDragEnd={onDragEnd}>
+        {isEditMode ? (
+          <DragDropContext onDragEnd={onDragEnd}>
+            <div className="flex flex-col">
+              {tiers.map((tier) => (
+                <TierRow
+                  key={tier.id}
+                  id={tier.id}
+                  score={tier.score}
+                  label={tier.label}
+                  albums={tier.albums}
+                  isEditMode={true}
+                />
+              ))}
+            </div>
+          </DragDropContext>
+        ) : (
           <div className="flex flex-col">
             {tiers.map((tier) => (
               <TierRow
@@ -176,10 +222,11 @@ export default function Home() {
                 score={tier.score}
                 label={tier.label}
                 albums={tier.albums}
+                isEditMode={false}
               />
             ))}
           </div>
-        </DragDropContext>
+        )}
       </main>
     </div>
   );
