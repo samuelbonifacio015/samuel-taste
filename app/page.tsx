@@ -100,9 +100,9 @@ export default function Home() {
       <Header />
 
       <main className="flex-1 pb-20">
-        <div className="px-8 mt-12 mb-8">
-          <h1 className="text-5xl font-bold text-white tracking-tight mb-2">My Collection</h1>
-          <p className="text-zinc-400 text-lg">Organized by critical acclaim & personal rating.</p>
+        <div className="px-4 md:px-8 mt-8 md:mt-12 mb-6 md:mb-8">
+          <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2">My Collection</h1>
+          <p className="text-zinc-400 text-sm md:text-lg">Organized by critical acclaim & personal rating.</p>
         </div>
 
         <div className="flex flex-col">
