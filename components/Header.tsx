@@ -11,9 +11,6 @@ export default function Header() {
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
-                <Link href="#" className="text-zinc-400 hover:text-white transition-colors text-sm font-medium">
-                    Dashboard
-                </Link>
                 <Link href="#" className="text-white text-sm font-medium">
                     Library
                 </Link>
@@ -21,21 +18,6 @@ export default function Header() {
                     Random Pick
                 </Link>
             </nav>
-
-            <div className="flex items-center gap-6">
-                <button className="text-zinc-400 hover:text-white transition-colors">
-                    <Moon className="w-5 h-5" />
-                </button>
-                <div className="w-8 h-8 rounded-full bg-orange-100 overflow-hidden border border-zinc-700">
-                    {/* Placeholder avatar if no image is available, but for now we'll simulate an empty one or use a generic user icon if preferred, 
-              but the design shows a specific avatar. I'll use a div simulating it or an img tag if I had a url. 
-              For now, let's use a simple colored div or an icon. The prompt mentions "avatar de perfil".
-           */}
-                    <div className="w-full h-full flex items-center justify-center bg-orange-200 text-orange-700 font-bold text-xs">
-                        U
-                    </div>
-                </div>
-            </div>
         </header>
     );
 }
